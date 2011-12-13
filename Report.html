@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+          Hosts vulnerabilities </title>
+<style type="text/css">
+          body { margin: 0px; background-color: #FFFFFF; color: #000000; font-family: Century Gothic, Verdana, Helvetica, sans-serif; text-align: center; }
+          table { color: #000000; background-color: #000000; border-collapse: collapse; border-spacing: 0px; border: 1px solid black; }
+          thead { display: table-header-group; }
+          tr { font-size: 9pt; background-color: #FFFFFF; border: 1px solid black; }
+          tr.head { font-weight: bold; }
+          td { border: 1px solid black; text-align: left; font-family: Century Gothic; font-size: 9pt; padding-left:8px; padding-right:8px; padding-top:6px; padding-bottom:6px;}
+          td.ip { width:106px }
+          td.host { width:145px }
+          td.kind { width:112px }
+          td.critical { background-color: #7030A0; color: #FFFFFF; font-weight: bold; width:65px; }
+          td.high { background-color: #FF0000; color: #FFFFFF; font-weight: bold; width:65px; }
+          td.medium { background-color: #FFC000; font-weight: bold; width:65px; }
+          td.low { background-color: #FFFF00; width:65px; }
+          td.problems { width:214px }
+          p { font-size: 9pt; text-align: left; margin:4px 0px 0px 10px; }
+        </style>
+</head>
+<body><table>
+<tr class="head">
+<td title="IP">IP</td>
+<td title="Host name">Name</td>
+<td title="Host kind">Kind</td>
+<td title="Vulnerability level">Level</td>
+<td title="Vulnerabilities">Security problems</td>
+</tr>
+<tr>
+<td class="ip">192.168.22.7</td>
+<td class="host">STA12345</td>
+<td class="kind">Station</td>
+<td class="medium">Medium</td>
+<td class="problems">
+<p>RDP is vulnerable</p>
+<p>VNC Server Security Type Detection</p>
+<p>VNC Software Detection</p>
+<p>VNC HTTP Server Detection</p>
+</td>
+</tr>
+<tr>
+<td class="ip">192.168.22.10</td>
+<td class="host">SERDATA</td>
+<td class="kind">Server</td>
+<td class="critical">Critical</td>
+<td class="problems">
+<p>Operating system no longer supported (Windows 2000)</p>
+<p>Weak SSL</p>
+<p>SSL certificate is from an unknown CA (self-signed)</p>
+<p>HP Data Protector Detection</p>
+<p>Broken Web Servers</p>
+</td>
+</tr>
+<tr>
+<td class="ip">192.168.22.50</td>
+<td class="host">CISCO1</td>
+<td class="kind">Cisco Device</td>
+<td class="high">High</td>
+<td class="problems"><p>Telnet is authorized</p></td>
+</tr>
+<tr>
+<td class="ip">192.168.22.51</td>
+<td class="host">CISCO2</td>
+<td class="kind">Cisco Device</td>
+<td class="high">High</td>
+<td class="problems"><p>SSH 1 is authorized</p></td>
+</tr>
+<tr>
+<td class="ip">192.168.22.100</td>
+<td class="host">SERDOMC</td>
+<td class="kind">Server</td>
+<td class="high">High</td>
+<td class="problems">
+<p>HP System Management is vulnerable</p>
+<p>RDP is vulnerable</p>
+<p>LDAP is vulnerable</p>
+<p>DNS Server Zone Tranfer Information Disclosure (AXFR)</p>
+<p>SSL Session Resume Supported</p>
+<p>OpenSSL Detection</p>
+<p>Microsoft Windows SMB : Obtains the Password Policy</p>
+</td>
+<tr>
+<td class="ip">192.168.22.160</td>
+<td class="host">HPDATA</td>
+<td class="kind">HP Storage</td>
+<td class="medium">Medium</td>
+<td class="problems">
+<p>SNMP misconfigured</p>
+<p>FTP Supports Clear Text Authentication</p>
+<p>Ftp is active</p>
+</td>
+</tr>
+</table></body>
+</html>

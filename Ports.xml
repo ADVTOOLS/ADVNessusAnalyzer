@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Ports>
+  <Port desc="ftp is active" portID="21">
+    <Levels>
+      <Level system-type="Server">3</Level>
+      <Level system-type="Station">2</Level>
+      <Level system-type="Router">1</Level>
+      <Level system-type="Printer">1</Level>
+    </Levels>
+  </Port>
+  <Port desc="Telnet is authorized" portID="23">
+    <Levels>
+      <Level system-type="Server">3</Level>
+      <Level system-type="Station">2</Level>
+      <Level system-type="Router">3</Level>
+      <Level system-type="Printer">1</Level>
+    </Levels>
+  </Port>
+</Ports>
