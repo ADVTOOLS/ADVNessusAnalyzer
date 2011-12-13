@@ -3,80 +3,110 @@
 ADVNessusAnalyzer is a set of tools to analyze and customize Nessus reports. It outputs an html report with categorized vulnerabilities for each host.
 
 Nessus reports are very technical and contain a lot of information. The purposes of ADVNessusAnalyzer are to:
+
 - Make a detailed report centered on the hosts
 - Re-categorize Nessus vulnerabilities providing a custom and more comprehensive description and adjusting the security level by system type (server, station, router, printer)
 - Group multiple Nessus vulnerabilities under one vulnerability
+
 For example:
+
 Nessus Plugin Id: 26928          Name: SSL Weak Cipher Suites Supported
+
 Nessus Plugin Id: 42873          Name: SSL Medium Strength Cipher Suites Supported
+
 ADVNessusAnalyzer: Weak SSL algorithms supported
+
 Nessus Plugin Id: 46868          Name: Apache Tomcat 5.x &lt; 5.5.21 Multiple Vulnerabilities
+
 Nessus Plugin Id: 46753          Name: Apache Tomcat &lt; 4.1.40 / 5.5.28 / 6.0.20 Multiple Vulnerabilities
+
 Nessus Plugin Id: 47028          Name: Apache Tomcat 5.x &lt; 5.5.1 Information Disclosure
+
 ADVNessusAnalyzer: The Tomcat server is vulnerable
+
 - Exclude plugins not relevant (Parameters.xml)
 - Add vulnerable opened port like ftp, telnet, etc... (Ports.xml)
 
 # How to use ADVNessusAnalyzer?
 
 ADVNessusAnalyzer has two reference files:
+
 - Parameters.xml that contains the list of Nessus excluded plugins that will not appear in the final report
 - Ports.xml that contains the list of vulnerable opened ports
 
 ADVNessusAnalyzer contains several steps to follow.
 
 - Prepare the vulnerabilities reference list that will be used for the final report
+
 `xsltproc -o Vulnerabilities.xml Vulnerabilities.xslt nessus_report.nessus`
 
 Vulnerabilities.xml will contain all Nessus plugin items, excluding those in Parameters.xml.
+
 You can modify Parameters.xml to exclude other plugins adding them to this file and re-processing Vulnerabilities.xslt.
+
 You can modify Vulnerabilities.xml to group some plugins under the same vulnerability and to adjust the security level by system type.
+
 Each time you re-process Vulnerabilities.xslt, it will add to Vulnerabilities.xml the Nessus missing plugins and will allow you to adjust this reference list.
+
 New plugins added to Vulnerabilities.xml after a process are identified by the attribute `documented="false"`
+
 During the first process of Vulnerabilities.xslt, the file Vulnerabilities.xml is not yet existing and a warning is displayed to the command line window.
 
 - Prepare the list of hosts
+
 `xsltproc -o Hosts.xml Hosts.xslt nessus_report.nessus`
 
 Hosts.xml will contain all hosts having at least one vulnerability or one vulnerable opened port.
+
 Other host will not be displayed in the final report.
 
 - Make the html report
+
 `xsltproc -o Report.html Report.xslt nessus_report.nessus`
 
 Report.html will contain the html customized report listing vulnerabilities by hosts.
+
 (See the example Report.html)
 
 # How to process ADVNessusAnalyzer files?
 
 In order to process ADVNessusAnalyzer files, you need to have a tool for applying XSLT stylesheets to XML documents.
+
 For example, you can use [Libxml](http://www.zlatkovic.com/libxml.en.html)
 
 # ADVNessusAnalyzer files
 
 - Parameters.xml
+
 List of excluded plugins
 
 - Ports.xml
+
 List of vulnerable opened ports
 
 - Vulnerabilities.xslt
+
 Provide xml vulnerabilities reference list
+
 Parameters:
+
 vulnerabilities     xml file containing the list of customized vulnerabilities. Default file is Vulnerabilities.xml.
+
 excludedPlugins     xml file containing the list of excluded plugins. Default file is Parameters.xml.
 
 - Hosts.xslt
+
 vulnerabilities     xml file containing the list of customized vulnerabilities. Default file is Vulnerabilities.xml.
+
 ports               xml file containinf the list of vulnerable opened ports. Default file is Ports.xml
 
 - Report.xslt
+
 vulnerabilities     xml file containing the list of customized vulnerabilities. Default file is Vulnerabilities.xml.
+
 ports               xml file containing the list of vulnerable opened ports. Default file is Ports.xml
+
 hosts               xml file containing the list of hosts. Default file is Hosts.xml, result of Hosts.xslt process.
-
-
-files+parameters
 
 # References
 
