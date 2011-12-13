@@ -35,7 +35,7 @@ ADVNessusAnalyzer has two reference files:
 
 ADVNessusAnalyzer contains several steps to follow.
 
-1. Prepare the vulnerabilities reference list that will be used for the final report
+- Prepare the vulnerabilities reference list that will be used for the final report
 
 `xsltproc -o Vulnerabilities.xml Vulnerabilities.xslt nessus_report.nessus`
 
@@ -43,13 +43,13 @@ Vulnerabilities.xml will contain all Nessus plugin items, excluding those in Par
 
 During the first process of Vulnerabilities.xslt, the file Vulnerabilities.xml is not yet existing and a warning is displayed to the command line window.
 
-2. Prepare the list of hosts
+- Prepare the list of hosts
 
 `xsltproc -o Hosts.xml Hosts.xslt nessus_report.nessus`
 
 Hosts.xml will contain all hosts having at least one vulnerability or one vulnerable opened port. Other host will not be displayed in the final report.
 
-3. Make the html report
+- Make the html report
 
 `xsltproc -o Report.html Report.xslt nessus_report.nessus`
 
